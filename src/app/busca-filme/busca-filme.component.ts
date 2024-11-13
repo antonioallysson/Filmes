@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FilmeService } from '../models/filme.service';
+import { Filme } from '../models/filme';
 
 @Component({
   selector: 'app-busca-filme',
@@ -7,15 +9,19 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
   styleUrl: './busca-filme.component.css'
 })
 export class BuscaFilmeComponent {
-  formBusca: FormGroup
+  formBusca: FormGroup;
+  filme: Filme | undefined;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private fs: FilmeService) {
     this.formBusca = this.fb.group({
-      titulo:['', [Validators.required, Validators.minLength(2)]]
-    })
+      titulo: ['', [Validators.required, Validators.minLength(2)]]
+    });
+
+    this.filme = undefined;
   }
 
-  Buscar() {
-    console.log(this.formBusca.value)
+  buscar() {
+    const titulo = this.formBusca.value.titulo;
+    this.filme = this.fs.buscarFilmePorTitulo(titulo);
   }
 }

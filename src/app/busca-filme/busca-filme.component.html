@@ -1,16 +1,17 @@
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="col-md-8 col-lg-4">
-        <h1 class="text-center">Buscar Filmes</h1>
-        <form [formGroup]="formBusca" class="mt-4">
-            <div class="mb-3">
-                <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" formControlName="titulo"
-                    placeholder="Digite o título do filme">
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="col-md-3 btn btn-primary" [disabled]="formBusca.invalid"
-                    (click)="Buscar()">Enviar</button>
-            </div>
-        </form>
+<h1>Buscar Filmes</h1>
+<form [formGroup]="formBusca">
+    <label for="titulo" class="form-label">Título</label>
+    <input type="text" class="form-control" id="titulo" formControlName="titulo">
+    <input type="button" value="Enviar" class="btn btn-primary" value="Buscar" [disabled]="formBusca.invalid" (click)="buscar()">
+</form>
+<div *ngIf="filme != undefined" class="card" style="width: 10rem;">
+    <img [src]="filme.Poster" class="card-img-top" alt="Poster">
+    <div class="card-body">
+        <h5 class="card-title">{{filme?.Title}}</h5>
+        <ul class="card-text">
+            <li>Director: {{filme.Director}}</li>
+            <li>Ano: {{filme.Year}}</li>
+            <li>Gênero: {{filme.Director}}</li>
+        </ul>
     </div>
 </div>
