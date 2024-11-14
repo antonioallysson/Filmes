@@ -1,32 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Filme } from './filme';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmeService {
-  private filmes: Filme[] = [
-    {
-      Title: 'Batman',
-      Year: '1989',
-      Director: 'Tim Burton',
-      Genre: '',
-      Country: 'EUA',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BYzZmZWViM2EtNzhlMi00NzBlLWE0MWEtZDFjMjk3YjIyNTBhXkEyXkFqcGc@._V1_SX300.jpg'
-    },
-    {
-      Title: 'The Godfather',
-      Year: '1972',
-      Director: 'Francis Ford Coppola',
-      Country: 'EUA',
-      Genre: 'Crime',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BYTJkNGQyZDgtZDQ0NC00MDM0LWEzZWQtYzUzZDEwMDljZWNjXkEyXkFqcGc@._V1_SX300.jpg'
-    }
-  ]
-  constructor() { }
+  private API = 'https://www.omdbapi.com/?apikey=901e7526'
 
-  buscarFilmePorTitulo(titulo: string): Filme | undefined {
-    return this.filmes.find(f => f.Title.toLocaleLowerCase() == titulo.trim().toLowerCase())
+  constructor(private http: HttpClient) { }
+
+  buscarFilmePorTitulo(titulo: string): Observable<Filme> {
+    return this.http.get<Filme>(`${this.API}&t=${titulo}`)
   }
 }

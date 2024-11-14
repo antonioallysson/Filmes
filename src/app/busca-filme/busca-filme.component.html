@@ -1,17 +1,27 @@
-<h1>Buscar Filmes</h1>
-<form [formGroup]="formBusca">
-    <label for="titulo" class="form-label">Título</label>
-    <input type="text" class="form-control" id="titulo" formControlName="titulo">
-    <input type="button" value="Enviar" class="btn btn-primary" value="Buscar" [disabled]="formBusca.invalid" (click)="buscar()">
-</form>
-<div *ngIf="filme != undefined" class="card" style="width: 10rem;">
-    <img [src]="filme.Poster" class="card-img-top" alt="Poster">
-    <div class="card-body">
-        <h5 class="card-title">{{filme?.Title}}</h5>
-        <ul class="card-text">
-            <li>Director: {{filme.Director}}</li>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div style="width: 100%; max-width: 500px; margin-left: -50px;">
+      <h1 class="text-center">Buscar Filmes</h1>
+      <form [formGroup]="formBusca">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="titulo" formControlName="titulo">
+        </div>
+        <div class="text-center">
+          <input type="button" value="Buscar" class="btn btn-primary" [disabled]="formBusca.invalid" (click)="buscar()">
+        </div>
+      </form>
+  
+      <div *ngIf="filme" class="card mt-4 mx-auto" style="width: 18rem;">
+        <img [src]="filme.Poster" class="card-img-top" alt="Poster">
+        <div class="card-body">
+          <h5 class="card-title">{{filme.Title}}</h5>
+          <ul class="card-text list-unstyled">
+            <li>Diretor: {{filme.Director}}</li>
             <li>Ano: {{filme.Year}}</li>
-            <li>Gênero: {{filme.Director}}</li>
-        </ul>
+            <li>Gênero: {{filme.Genre}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

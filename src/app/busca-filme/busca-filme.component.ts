@@ -21,7 +21,10 @@ export class BuscaFilmeComponent {
   }
 
   buscar() {
-    const titulo = this.formBusca.value.titulo;
-    this.filme = this.fs.buscarFilmePorTitulo(titulo);
+    const titulo = this.formBusca.value.titulo
+    this.fs.buscarFilmePorTitulo(titulo).subscribe(
+      res => {
+        this.filme = res
+      })
   }
 }
