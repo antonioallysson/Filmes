@@ -1,26 +1,15 @@
-form {
-    margin-bottom: 20px;
+html {
+    background-image: url(./app/image/brazil.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center; 
+    background-repeat: no-repeat;
 }
 
-div {
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 5px 10px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
+body {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-img {
-    margin-right: 10px;
+    justify-content: center;
+    align-items: top;
+    height: 100vh;
+    margin: 20;
 }

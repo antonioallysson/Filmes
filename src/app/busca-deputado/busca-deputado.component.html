@@ -1,22 +1,24 @@
 <form [formGroup]="formBusca" (ngSubmit)="buscar()">
-    <div>
-      <label for="nome">Nome do Deputado:</label>
-      <input id="nome" formControlName="nome" placeholder="Digite o nome" />
-    </div>
-    <div>
-      <label for="partido">Sigla do Partido:</label>
-      <input id="partido" formControlName="partido" placeholder="Ex: PT, PSL" />
-    </div>
-    <button type="submit" [disabled]="formBusca.invalid">Buscar</button>
-  </form>
-  
-  <div *ngIf="deputados.length">
-    <h3>Resultados:</h3>
-    <ul>
-      <li *ngFor="let deputado of deputados">
-        <img [src]="deputado.urlFoto" alt="Foto de {{ deputado.nome }}" width="50" />
-        <strong>{{ deputado.nome }}</strong> ({{ deputado.siglaPartido }} - {{ deputado.siglaUf }})
-      </li>
-    </ul>
+  <div>
+    <label for="nome">Nome do Deputado:</label>
+    <input id="nome" formControlName="nome" placeholder="Digite o nome" />
   </div>
-  
+  <div>
+    <label for="partido">Sigla do Partido:</label>
+    <input id="partido" formControlName="partido" placeholder="Ex: PT" />
+  </div>
+  <button type="submit" [disabled]="formBusca.invalid">Buscar</button>
+</form>
+
+<div *ngIf="deputados.length">
+  <h3>Resultados:</h3>
+  <ul>
+    <li *ngFor="let deputado of deputados">
+      <img [src]="deputado.urlFoto" alt="Foto de {{ deputado.nome }}" />
+      <strong>{{ deputado.nome }}</strong>
+      <div class="part-uf">
+        <span>{{ deputado.siglaPartido }} | {{ deputado.siglaUf }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

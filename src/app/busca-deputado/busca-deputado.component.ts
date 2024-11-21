@@ -27,7 +27,8 @@ export class BuscaDeputadoComponent {
         res => this.deputados = res,
         err => console.error('Erro ao buscar deputados por nome:', err)
       );
-    } else if (partido) {
+    } 
+    else if (partido) {
       this.deputadoService.buscarDeputadosPorPartido(partido).subscribe(
         res => this.deputados = res,
         err => console.error('Erro ao buscar deputados por partido:', err)
