@@ -1,3 +1,9 @@
+.pesquisa {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
 form {
   background-color: #eaf7ea;
   padding: 20px;
@@ -6,6 +12,7 @@ form {
   width: 500px;
   display: flex;
   flex-direction: column;
+  margin-top: auto;
 }
 
 form div {
@@ -39,7 +46,10 @@ button:disabled {
 }
 
 h3 {
-  color: #2d6a4f;
+  color: #000000;
+  border: #40916c solid;  
+  background-color: white;
+  width: 200px;
 }
 
 ul {
@@ -48,6 +58,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin-left: 110px;
 }
 
 li {

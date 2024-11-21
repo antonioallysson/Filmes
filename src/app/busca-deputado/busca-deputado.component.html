@@ -1,3 +1,5 @@
+
+<div class="pesquisa">
 <form [formGroup]="formBusca" (ngSubmit)="buscar()">
   <div>
     <label for="nome">Nome do Deputado:</label>
@@ -9,15 +11,17 @@
   </div>
   <button type="submit" [disabled]="formBusca.invalid">Buscar</button>
 </form>
+</div>
 
 <div *ngIf="deputados.length">
-  <h3>Resultados:</h3>
+  <h3>Resultados da da busca:</h3>
   <ul>
     <li *ngFor="let deputado of deputados">
       <img [src]="deputado.urlFoto" alt="Foto de {{ deputado.nome }}" />
       <strong>{{ deputado.nome }}</strong>
       <div class="part-uf">
-        <span>{{ deputado.siglaPartido }} | {{ deputado.siglaUf }}</span>
+        <span> Partido: {{ deputado.siglaPartido }}</span> <br>
+        <span> Estado: {{ deputado.siglaUf }}</span>
       </div>
     </li>
   </ul>

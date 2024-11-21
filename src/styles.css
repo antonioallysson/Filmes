@@ -4,12 +4,7 @@ html {
     background-attachment: fixed;
     background-position: center; 
     background-repeat: no-repeat;
-}
-
-body {
     display: flex;
     justify-content: center;
     align-items: top;
-    height: 100vh;
-    margin: 20;
 }
